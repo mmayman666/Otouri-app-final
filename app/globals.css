@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 258 14.3% 15.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 258 14.3% 15.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 258 14.3% 15.1%;
+    --primary: 258 79% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 258 57% 96%;
+    --secondary-foreground: 258 14.3% 15.1%;
+    --muted: 258 57% 96%;
+    --muted-foreground: 258 5.3% 44.7%;
+    --accent: 258 57% 96%;
+    --accent-foreground: 258 14.3% 15.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 258 5.9% 90%;
+    --input: 258 5.9% 90%;
+    --ring: 258 79% 57%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 258 14.3% 10.1%;
+    --foreground: 0 0% 98%;
+    --card: 258 14.3% 10.1%;
+    --card-foreground: 0 0% 98%;
+    --popover: 258 14.3% 10.1%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 258 79% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 258 10% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 258 10% 20%;
+    --muted-foreground: 258 5.4% 63.9%;
+    --accent: 258 10% 20%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 258 10% 20%;
+    --input: 258 10% 20%;
+    --ring: 258 79% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* تحسينات إضافية للتصميم العربي */
+html[dir="rtl"] {
+  text-align: right;
+}
+
+/* تأثيرات الانتقال */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* تأثيرات التمرير */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* تحسين مظهر الخطوط */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-purple-400;
+  }
+
+  .bg-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a855f7' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0) 40%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+
+  /* تأثير حركة أفقية مستمرة */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* تأثير تلاشي تدريجي للعناصر */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* تأثير نبض للعناصر */
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* تأثير ظل متحرك */
+  .hover-shadow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-shadow:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-5px);
+  }
+
+  /* تأثير تدرج متحرك */
+  .animated-gradient {
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s ease infinite;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
